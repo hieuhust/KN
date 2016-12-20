@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/fragment_period_info_cycle_day_number_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/period" />
+
+            <TextView
+                android:id="@+id/fragment_period_info_cycle_day_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp"
+                android:text="20 day" />
+
+            <ImageView
+                android:id="@+id/fragment_period_info_cycle_day_number_imv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:drawable/arrow_down_float"
+                android:minWidth="30dp" />
+        </RelativeLayout>
+
+        <NumberPicker
+            android:id="@+id/fragment_period_info_cycle_day_number_np"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"></NumberPicker>
+
+        <TextView
+            android:id="@+id/fragment_period_info_cycle_day_number_annotation_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/annotation_period_circle"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!---->
+
+        <RelativeLayout
+            android:id="@+id/fragment_period_info_cycle_day_number_hanh_kinh_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/day_number_hanh_kinh" />
+
+            <TextView
+                android:id="@+id/fragment_period_info_cycle_day_number_hanh_kinh_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp"
+                android:text="4 day" />
+
+            <ImageView
+                android:id="@+id/fragment_period_info_cycle_day_number_hanh_kinh_imv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:drawable/arrow_down_float"
+                android:minWidth="30dp" />
+        </RelativeLayout>
+
+        <NumberPicker
+            android:id="@+id/fragment_period_info_cycle_day_number_hanh_kinh_np"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"></NumberPicker>
+
+        <!---->
+
+        <RelativeLayout
+            android:id="@+id/fragment_period_info_cycle_first_day_cycle_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/first_day_of_period" />
+
+            <ImageView
+                android:id="@+id/fragment_period_info_cycle_first_day_cycle_imv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:drawable/arrow_down_float"
+                android:minWidth="30dp" />
+        </RelativeLayout>
+
+        <DatePicker
+            android:id="@+id/fragment_period_info_cycle_first_day_cycle_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/preiod_info_header"
+            android:visibility="gone"></DatePicker>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

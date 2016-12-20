@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">PeriodChecker</string>
+    <string name="app_name">Period Checker</string>
+    <string name="language">Language</string>
+    <string name="choose_language">Choose language</string>
+    <string name="english">English</string>
+    <string name="tieng_viet">Tiếng Việt</string>
+    <string name="create_new_user">Create new user</string>
+    <string name="full_name">Full name</string>
+    <string name="height">Height (cm)</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="next">Next</string>
+
+    <!-- period_info-->
+    <string name="title_activity_period_info">PeriodInfo</string>
+    <string name="back_title">Back</string>
+    <string name="period_type_circle">Chu kỳ đều</string>
+    <string name="period">Chu kỳ</string>
+    <string name="annotation_period_circle">Khoảng thời gian giữa ngày đầu hành kinh chu kỳ này và chu kỳ trước</string>
+    <string name="day_number_hanh_kinh">Số ngày hành kinh</string>
+    <string name="first_day_of_period">Ngày đầu chu kỳ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!---->
+
 </resources>
