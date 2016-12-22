@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/setting" />
+
+        <com.example.anonymous.periodchecker.customview.SettingHeader
+            android:id="@+id/fragment_setting_cycle_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kinhnguyet" />
+
+        <com.example.anonymous.periodchecker.customview.ItemNormal
+            android:id="@+id/fragment_setting_cycle_itemnormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float"
+            custom:detail="20 days"
+            custom:mytitle="@string/period" />
+
+        <NumberPicker
+            android:id="@+id/fragment_setting_cycle_np"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"></NumberPicker>
+
+        <TextView
+            android:id="@+id/fragment_setting_cycle_annotation_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/annotation_period_circle"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!---->
+
+        <com.example.anonymous.periodchecker.customview.ItemNormal
+            android:id="@+id/fragment_setting_hanh_kinh_itemnormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float"
+            custom:detail="4 days"
+            custom:mytitle="@string/day_number_hanh_kinh"></com.example.anonymous.periodchecker.customview.ItemNormal>
+
+
+        <NumberPicker
+            android:id="@+id/fragment_period_info_cycle_day_number_hanh_kinh_np"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"></NumberPicker>
+
+        <com.example.anonymous.periodchecker.customview.SettingHeader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setting" />
+
+        <RelativeLayout
+            android:id="@+id/fragment_setting_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pwd" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/activity_period_info_sw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:minWidth="80dp" />
+        </RelativeLayout>
+
+        <com.example.anonymous.periodchecker.customview.ItemNormal
+            android:id="@+id/fragment_setting_lang_itemnomal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float"
+            custom:detail="@string/type_lang"
+            custom:mytitle="@string/lang" />
+
+        <com.example.anonymous.periodchecker.customview.ItemNormal
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:detail="@string/Email"
+            custom:mytitle="@string/support" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
