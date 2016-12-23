@@ -1,1 +1,9 @@
-<resources></resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="splashScreenTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/src_resources_artwork_bg</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark_material</item>
+    </style>
+</resources>

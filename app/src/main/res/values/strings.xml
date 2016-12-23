@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Period Checker</string>
+    <string name="production_name">An Lan Production!</string>
     <string name="language">Language</string>
     <string name="choose_language">Choose language</string>
     <string name="english">English</string>
@@ -10,6 +11,14 @@
     <string name="weight">Weight (kg)</string>
     <string name="date_of_birth">Date of birth</string>
     <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="menstrual_info">Menstrual info</string>
+    <string name="periodic_cycle">Periodic cycle</string>
+    <string name="menstrual_cycle">Menstrual cycle</string>
+    <string name="period_length">Period length</string>
+    <string name="first_period_day">First period day</string>
+    <string name="menstrual_cycle_max">Menstrual cycle max (days)</string>
+    <string name="menstrual_cycle_min">Menstrual cycle min (days)</string>
 
     <!-- period_info-->
     <string name="title_activity_period_info">PeriodInfo</string>
@@ -24,13 +33,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main_info">MainInfoActivity</string>
     <string name="setting">Setting</string>
-    <string name="kinhnguyet">KinhNguyet</string>
+    <string name="setting_upcase">SETTING</string>
+    <string name="kinhnguyet_upcase">KINH NGUYET</string>
     <string name="pwd">Pass Word</string>
     <string name="lang">Language</string>
     <string name="type_lang">English</string>
     <string name="support">Support</string>
     <string name="Email">aaa@gmail.com</string>
-    <!---->
-
-
+    <string name="trigger_co_kinh">Bat dau co kinh hom nay</string>
 </resources>

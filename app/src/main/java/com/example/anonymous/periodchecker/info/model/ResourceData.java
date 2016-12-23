@@ -1,4 +1,4 @@
-package com.example.anonymous.periodchecker.info;
+package com.example.anonymous.periodchecker.info.model;
 
 import com.example.anonymous.periodchecker.R;
 

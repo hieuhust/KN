@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +20,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     ImageView mImgEnglishSelection, mImgVietnamSelection;
     LinearLayout mLnChoosingLanguage;
     Button mNextButton;
+    Animation mAnimSelected;
     boolean mIsShowChoosingLanguageLayout;
 
     @Override
@@ -35,6 +38,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mLnChoosingLanguage = (LinearLayout) findViewById(R.id.lnChoosingLanguage);
         mNextButton = (Button) findViewById(R.id.next_button);
 
+        mAnimSelected = AnimationUtils.loadAnimation(this, R.anim.anim_select);
+
         mRlSelectLanguage.setOnClickListener(this);
         mRLVietnam.setOnClickListener(this);
         mRLEnglish.setOnClickListener(this);
@@ -44,6 +49,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
+        v.startAnimation(mAnimSelected);
         switch (id) {
             case R.id.select_language:
                 if (mIsShowChoosingLanguageLayout) {

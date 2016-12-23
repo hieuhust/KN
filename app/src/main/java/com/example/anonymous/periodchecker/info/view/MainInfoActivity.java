@@ -1,4 +1,4 @@
-package com.example.anonymous.periodchecker.info;
+package com.example.anonymous.periodchecker.info.view;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,36 +7,37 @@ import android.support.v4.view.ViewPager;
 
 import com.example.anonymous.periodchecker.BaseActivity;
 import com.example.anonymous.periodchecker.R;
+import com.example.anonymous.periodchecker.info.model.ResourceData;
 import com.example.anonymous.periodchecker.period.OnFragmentInteractionListener;
 import com.example.anonymous.periodchecker.period.PeriodInfoForCycleFragment;
 
 public class MainInfoActivity extends BaseActivity implements OnFragmentInteractionListener {
 
-
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_info);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.activity_main_info_viewpager);
-        if (viewPager != null) {
-            setupViewPager(viewPager);
+        mViewPager = (ViewPager) findViewById(R.id.activity_main_info_viewpager);
+        if (mViewPager != null) {
+            setupViewPager(mViewPager);
         }
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.activity_main_info_tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(mViewPager);
         setIconForTabLayout(tabLayout);
 
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ScreenSlidePagerAdapter adapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SettingFragment(), "Category 1");
-        adapter.addFragment(new PeriodInfoForCycleFragment(), "Category 2");
+        adapter.addFragment(MainFragment.newInstance(), "Category 2");
         adapter.addFragment(new PeriodInfoForCycleFragment(), "Category 3");
         adapter.addFragment(new PeriodInfoForCycleFragment(), "Category 3");
         adapter.addFragment(new PeriodInfoForCycleFragment(), "Category 3");
+        adapter.addFragment(SettingFragment.newInstance(), "Category 1");
         viewPager.setAdapter(adapter);
     }
 
@@ -53,6 +54,7 @@ public class MainInfoActivity extends BaseActivity implements OnFragmentInteract
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 tab.setIcon(ResourceData.tabSelectedIcons[tab.getPosition()]);
+                mViewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override

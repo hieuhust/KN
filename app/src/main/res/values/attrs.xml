@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ItemNormal">
-        <attr name="detail" format="string"/>
-        <attr name="mytitle" format="string"/>
-        <attr name="android:src"/>
+        <attr name="detail" format="string" />
+        <attr name="mytitle" format="string" />
+        <attr name="iconsize" format="dimension" />
+        <attr name="android:src" />
     </declare-styleable>
 
     <declare-styleable name="Header">
-        <attr name="android:text"/>
+        <attr name="android:text" />
     </declare-styleable>
 
 </resources>

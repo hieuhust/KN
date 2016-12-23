@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -47,18 +48,35 @@ public class ItemNormal extends RelativeLayout {
             this.tvTitle.setText(title);
             CharSequence content = a.getString(R.styleable.ItemNormal_detail);
             this.tvContent.setText(content);
+
+            int iconSize = convertDpToPixel(a.getDimension(R.styleable.ItemNormal_iconsize, 20));
+            this.tvContent.setText(content);
             a.recycle();
 
             //get drwable id from ItemNormal and set to image view of it
             int resId = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/android", "src", 0);
-            if(resId !=0) {
+            if (resId != 0) {
+                //set size of image
+                LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(iconSize, iconSize);
+                imv.setLayoutParams(parms);
                 imv.setImageResource(resId);
-            }
-            else {
+            } else {
                 imv.setVisibility(View.GONE);
             }
         }
     }
 
+    public void setContentText(String text) {
+        tvContent.setText(text);
+    }
+
+    public int convertDpToPixel(float dps) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        return (int) (dps * scale + 0.5f);
+    }
+
+    public void presentIcon(int typeVisibility) {
+        imv.setVisibility(typeVisibility);
+    }
 
 }

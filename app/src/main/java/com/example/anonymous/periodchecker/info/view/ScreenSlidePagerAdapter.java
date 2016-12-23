@@ -1,4 +1,4 @@
-package com.example.anonymous.periodchecker.info;
+package com.example.anonymous.periodchecker.info.view;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
