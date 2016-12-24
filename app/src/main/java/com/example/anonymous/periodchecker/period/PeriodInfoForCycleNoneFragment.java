@@ -62,7 +62,7 @@ public class PeriodInfoForCycleNoneFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_period_info_cycle_none, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    // TODO: Rename method, signalNotifyDataChange argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

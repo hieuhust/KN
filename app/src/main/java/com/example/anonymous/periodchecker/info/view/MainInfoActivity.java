@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
-import com.example.anonymous.periodchecker.BaseActivity;
+import com.example.anonymous.periodchecker.common.view.BaseActivity;
 import com.example.anonymous.periodchecker.R;
 import com.example.anonymous.periodchecker.info.model.ResourceData;
 import com.example.anonymous.periodchecker.period.OnFragmentInteractionListener;

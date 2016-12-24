@@ -1,4 +1,4 @@
-package com.example.anonymous.periodchecker;
+package com.example.anonymous.periodchecker.common.view;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,11 +8,17 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.NumberPicker;
 
+import com.example.anonymous.periodchecker.R;
+
 /**
  * Created by Huy Hieu on 12/19/2016.
  */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
+
+    public abstract void initView(View view);
+
+    public abstract void initData();
 
     /**
      * show or hide view when another view is click

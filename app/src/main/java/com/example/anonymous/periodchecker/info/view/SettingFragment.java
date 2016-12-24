@@ -1,27 +1,20 @@
 package com.example.anonymous.periodchecker.info.view;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.NumberPicker;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.anonymous.periodchecker.BaseFragment;
 import com.example.anonymous.periodchecker.R;
+import com.example.anonymous.periodchecker.common.model.TYPE_LANGUAGE;
+import com.example.anonymous.periodchecker.common.view.BaseFragment;
 import com.example.anonymous.periodchecker.customview.ItemNormal;
-import com.example.anonymous.periodchecker.period.OnFragmentInteractionListener;
-import com.example.anonymous.periodchecker.period.PeriodInfoForCycleFragment;
-
-import utils.TYPE_LAGUAGE;
+import com.example.anonymous.periodchecker.info.model.SettingData;
+import com.example.anonymous.periodchecker.info.present.SettingPresent;
 
 /**
  * Created by Huy Hieu on 12/21/2016.
@@ -39,7 +32,9 @@ public class SettingFragment extends BaseFragment {
 
     private TextView tvCycleAnnotation;
 
-    private boolean isVnlanguage = false;
+    private SettingData mSettingData;
+
+    private SettingPresent mSettingPresent;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -67,14 +62,15 @@ public class SettingFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         initView(view);
-
+        initData();
         // Inject data to number pickers
         NumberPicker[] numberPickers = {npCycle, npHanhKinh};
         initDataForNumberPicker(1, 50, numberPickers);
         return view;
     }
 
-    private void initView(View view) {
+    @Override
+    public void initView(View view) {
         // for cycle
         itemNormalCycle = (ItemNormal) view.findViewById(R.id.fragment_setting_cycle_itemnormal);
         npCycle = (NumberPicker) view.findViewById(R.id.fragment_setting_cycle_np);
@@ -95,7 +91,7 @@ public class SettingFragment extends BaseFragment {
         presentWhenClick(itemNormalLang, new AfterOnClickListener() {
             @Override
             public void handle() {
-                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, getSelectedLanguage());
+                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, mSettingData.getTypeLaguage().getValue());
             }
         }, itemNormalHides);
 
@@ -109,54 +105,48 @@ public class SettingFragment extends BaseFragment {
         itemNormalVn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int language = TYPE_LAGUAGE.VIET_NAM.getValue();
+                int language = TYPE_LANGUAGE.VIET_NAM.getValue();
                 handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, language);
-                setSelectedLanguage(language);
+                mSettingData.setTypeLaguage(TYPE_LANGUAGE.VIET_NAM);
             }
         });
 
         itemNormalEng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int language = TYPE_LAGUAGE.ENGLAND.getValue();
+                int language = TYPE_LANGUAGE.ENGLAND.getValue();
                 handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, language);
-                setSelectedLanguage(language);
+                mSettingData.setTypeLaguage(TYPE_LANGUAGE.ENGLAND);
             }
         });
         npHanhKinh.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-
+                mSettingData.setNumverDayHanhKinh(newVal);
             }
         });
         npCycle.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-
+                mSettingData.setNumberDayOfaCycle(newVal);
             }
         });
         swPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                mSettingData.setUsePassword(isChecked);
             }
         });
     }
 
-    private int getSelectedLanguage() {
-
-        //// TODO: 12/23/2016 Add codes to get value of language
-        return TYPE_LAGUAGE
-                .ENGLAND.getValue();
-    }
-
-    private void setSelectedLanguage(int language) {
-
-        // TODO: 12/23/2016 Add codes to set value of language
+    @Override
+    public void initData() {
+        mSettingPresent = SettingPresent.newInstance();
+        mSettingData = mSettingPresent.getData();
     }
 
     private void handleSelectLangague(ItemNormal itemNormalEng, ItemNormal itemNormalVn, ItemNormal parent, int language) {
-        if (language == TYPE_LAGUAGE.VIET_NAM.getValue()) {
+        if (language == TYPE_LANGUAGE.VIET_NAM.getValue()) {
             itemNormalVn.presentIcon(View.VISIBLE);
             itemNormalEng.presentIcon(View.GONE);
             parent.setContentText(getContext().getString(R.string.tieng_viet));

@@ -1,4 +1,4 @@
-package com.example.anonymous.periodchecker;
+package com.example.anonymous.periodchecker.common.view;
 
 import android.support.v7.app.AppCompatActivity;
 

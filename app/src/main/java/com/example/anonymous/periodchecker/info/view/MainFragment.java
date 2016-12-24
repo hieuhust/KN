@@ -2,20 +2,16 @@ package com.example.anonymous.periodchecker.info.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
-import com.example.anonymous.periodchecker.BaseFragment;
+import com.example.anonymous.periodchecker.common.view.BaseFragment;
 import com.example.anonymous.periodchecker.R;
-import com.example.anonymous.periodchecker.period.PeriodInfoForCycleFragment;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Huy Hieu on 12/23/2016.
@@ -48,11 +44,12 @@ public class MainFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         initView(view);
-        injectData();
+        setDateForTextViewDate();
         return view;
     }
 
-    private void initView(View view) {
+    @Override
+    public void initView(View view) {
         tvDayth = (TextView)view.findViewById(R.id.fragment_main_day_th_tv);
         tvNumberDayRemain = (TextView)view.findViewById(R.id.fragment_main_number_day_remain_tv);
         tvDate = (TextView)view.findViewById(R.id.fragment_main_date_tv);
@@ -65,7 +62,12 @@ public class MainFragment extends BaseFragment {
         });
     }
 
-    private void injectData(){
+    @Override
+    public void initData() {
+
+    }
+
+    private void setDateForTextViewDate(){
         Calendar c = Calendar.getInstance();
         String date = Integer.toString(c.get(Calendar.DATE));
         String month = Integer.toString(c.get(Calendar.MONTH));

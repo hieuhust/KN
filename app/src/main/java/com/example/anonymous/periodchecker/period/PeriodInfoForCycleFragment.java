@@ -12,7 +12,7 @@ import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.anonymous.periodchecker.BaseFragment;
+import com.example.anonymous.periodchecker.common.view.BaseFragment;
 import com.example.anonymous.periodchecker.R;
 
 public class PeriodInfoForCycleFragment extends BaseFragment {
@@ -63,7 +63,8 @@ public class PeriodInfoForCycleFragment extends BaseFragment {
         return view;
     }
 
-    private void initView(View view) {
+    @Override
+    public void initView(View view) {
         rlDayNumber = (RelativeLayout) view.findViewById(R.id.fragment_period_info_cycle_day_number_rl);
         tvDayNumber = (TextView) view.findViewById(R.id.fragment_period_info_cycle_day_number_tv);
         imvDayNumber = (ImageView) view.findViewById(R.id.fragment_period_info_cycle_day_number_imv);
@@ -80,6 +81,11 @@ public class PeriodInfoForCycleFragment extends BaseFragment {
         presentWhenClick(rlDayNumber, dayNumberViewHides);
         presentWhenClick(rlHanhKinhDayNumber, npHanhKinhDayNumber);
         presentWhenClick(rlFirstDayCycle, dpFirstDayCycle);
+    }
+
+    @Override
+    public void initData() {
+
     }
 
 
