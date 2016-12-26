@@ -40,7 +40,7 @@ public class SettingData extends DataModel {
         return numberDayOfaCycle;
     }
 
-    public int getNumverDayHanhKinh() {
+    public int getNumberDayHanhKinh() {
         return numverDayHanhKinh;
     }
 

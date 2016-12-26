@@ -123,12 +123,14 @@ public class SettingFragment extends BaseFragment {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 mSettingData.setNumverDayHanhKinh(newVal);
+                itemNormalHanhKinh.setContentText(newVal + " days");
             }
         });
         npCycle.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 mSettingData.setNumberDayOfaCycle(newVal);
+                itemNormalCycle.setContentText(newVal + " days");
             }
         });
         swPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -141,8 +143,13 @@ public class SettingFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        mSettingPresent = SettingPresent.newInstance();
+        mSettingPresent = SettingPresent.newInstance(getContext().getApplicationContext());
         mSettingData = mSettingPresent.getData();
+        itemNormalCycle.setContentText(mSettingData.getNumberDayOfaCycle() + " days");
+        itemNormalHanhKinh.setContentText(mSettingData.getNumberDayHanhKinh() + " days");
+        itemNormalLang.setContentText(mSettingData.getTypeLaguage().name());
+        swPwd.setChecked(mSettingData.isUsePassword());
+
     }
 
     private void handleSelectLangague(ItemNormal itemNormalEng, ItemNormal itemNormalVn, ItemNormal parent, int language) {

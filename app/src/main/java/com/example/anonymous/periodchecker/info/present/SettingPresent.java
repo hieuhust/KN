@@ -1,9 +1,9 @@
 package com.example.anonymous.periodchecker.info.present;
 
+import android.content.Context;
+
 import com.example.anonymous.periodchecker.common.model.BasePresent;
-import com.example.anonymous.periodchecker.common.model.DataFactory;
-import com.example.anonymous.periodchecker.common.model.TYPE_DATA;
-import com.example.anonymous.periodchecker.common.model.TYPE_LANGUAGE;
+import com.example.anonymous.periodchecker.info.dao.SettingPreferences;
 import com.example.anonymous.periodchecker.info.model.SettingData;
 
 /**
@@ -12,33 +12,31 @@ import com.example.anonymous.periodchecker.info.model.SettingData;
 
 public class SettingPresent extends BasePresent<SettingData> {
 
-    private static SettingPresent settingPresent;
+    private static SettingPresent s_settingPresent;
 
-    protected SettingPresent() {
+    private Context mContext;
 
+    private SettingPreferences mSettingPreferences;
+
+    protected SettingPresent(Context context) {
+        this.mContext = context;
+        mSettingPreferences = SettingPreferences.newInstance(mContext);
     }
 
-    public static SettingPresent newInstance() {
-        if (settingPresent == null)
-            return new SettingPresent();
-        else return settingPresent;
+    public static SettingPresent newInstance(Context context) {
+        if (s_settingPresent == null)
+            return new SettingPresent(context);
+        else return s_settingPresent;
     }
 
     @Override
     protected SettingData fetchDataModel() {
-        SettingData settingData = (SettingData) new DataFactory().getData(TYPE_DATA.SETTING);
-
-        //// TODO: 12/24/2016 get values in here
-        settingData.setTypeLaguage(TYPE_LANGUAGE.ENGLAND);
-        return settingData;
+        return mSettingPreferences.getSettingData();
     }
 
     @Override
     public void signalNotifyDataChange(SettingData dataModel) {
-        //testing
-        dataModel.dump();
-
-        // TODO: 12/24/2016 update to db or preferences 
+        mSettingPreferences.setSettingData(dataModel);
     }
 
 

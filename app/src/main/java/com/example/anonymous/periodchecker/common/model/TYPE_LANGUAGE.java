@@ -17,4 +17,12 @@ public enum TYPE_LANGUAGE {
     public int getValue() {
         return value;
     }
+
+    public static TYPE_LANGUAGE convertIntToTypeLanguage(int value) {
+        if (value == VIET_NAM.getValue()) {
+            return VIET_NAM;
+        } else {
+            return ENGLAND;
+        }
+    }
 }
