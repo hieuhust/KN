@@ -15,6 +15,16 @@ public class SettingData extends DataModel {
     private int numverDayHanhKinh;
     private boolean isUsePassword;
     private TYPE_LANGUAGE typeLaguage;
+    private String pwd;
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+        notifyAllObservers();
+    }
 
     public void setNumberDayOfaCycle(int numberDayOfaCycle) {
         this.numberDayOfaCycle = numberDayOfaCycle;

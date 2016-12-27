@@ -1,8 +1,10 @@
 package com.example.anonymous.periodchecker.info.view;
 
 import android.os.Bundle;
+import android.os.Parcel;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -35,6 +37,8 @@ public class SettingFragment extends BaseFragment {
     private SettingData mSettingData;
 
     private SettingPresent mSettingPresent;
+
+    private boolean isTouchToSwitch;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -133,16 +137,55 @@ public class SettingFragment extends BaseFragment {
                 itemNormalCycle.setContentText(newVal + " days");
             }
         });
+        swPwd.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                isTouchToSwitch = true;
+                return false;
+            }
+        });
         swPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mSettingData.setUsePassword(isChecked);
+            public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
+                if (isTouchToSwitch) {
+                    if (isChecked) {
+                        if ("".equals(mSettingData.getPwd())) {
+                            PasswordDialog.showDialog(R.string.pwd_dialog_title, new DialogOnClickListener() {
+                                @Override
+                                public void doPositiveClick(String pwd) {
+                                    mSettingData.setPwd(pwd);
+                                    mSettingData.setUsePassword(isChecked);
+                                }
+
+                                @Override
+                                public void doNegativeClick() {
+                                    swPwd.setChecked(false);
+                                }
+
+                                @Override
+                                public int describeContents() {
+                                    return 0;
+                                }
+
+                                @Override
+                                public void writeToParcel(Parcel dest, int flags) {
+
+                                }
+                            }, getFragmentManager());
+                        } else {
+                            mSettingData.setUsePassword(isChecked);
+                        }
+                    } else {
+                        mSettingData.setUsePassword(isChecked);
+                    }
+                }
             }
         });
     }
 
     @Override
     public void initData() {
+        isTouchToSwitch = false;
         mSettingPresent = SettingPresent.newInstance(getContext().getApplicationContext());
         mSettingData = mSettingPresent.getData();
         itemNormalCycle.setContentText(mSettingData.getNumberDayOfaCycle() + " days");

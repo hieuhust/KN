@@ -41,4 +41,9 @@
     <string name="support">Support</string>
     <string name="Email">aaa@gmail.com</string>
     <string name="trigger_co_kinh">Bat dau co kinh hom nay</string>
+    <string name="pwd_dialog_ok">Ok</string>
+    <string name="pwd_dialog_cancel">Cancel</string>
+    <string name="pwd_show">Show password</string>
+    <string name="pwd_info_enter">Password is empty! Plz enter password</string>
+    <string name="pwd_dialog_title">Enter password</string>
 </resources>

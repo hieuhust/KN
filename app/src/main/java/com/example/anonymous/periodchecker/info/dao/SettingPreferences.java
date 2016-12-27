@@ -24,6 +24,8 @@ public class SettingPreferences {
 
     private final static String TYPE_LANGUAGE_STRING = "type_language";
 
+    private final static String PASS_WORD = "password";
+
     private final static boolean IS_USE_PASSWORD_DEFAULT_VALUE = false;
 
     private final static int NUMBER_DAY_OF_A_CYCLE_DEFAULT_VALUE = 30;
@@ -57,6 +59,7 @@ public class SettingPreferences {
         settingData.setNumberDayOfaCycle(mSharedPreferences.getInt(NUMBER_DAY_OF_A_CYCLE, NUMBER_DAY_OF_A_CYCLE_DEFAULT_VALUE));
         settingData.setUsePassword(mSharedPreferences.getBoolean(IS_USE_PASSWORD, IS_USE_PASSWORD_DEFAULT_VALUE));
         settingData.setTypeLaguage(TYPE_LANGUAGE.convertIntToTypeLanguage(mSharedPreferences.getInt(TYPE_LANGUAGE_STRING, TYPE_LANGUAGE_DEFAULT_VALUE.getValue())));
+        settingData.setPwd(mSharedPreferences.getString(PASS_WORD, ""));
 
         return settingData;
     }
@@ -67,6 +70,7 @@ public class SettingPreferences {
         editor.putInt(NUMBER_DAY_OF_A_CYCLE, settingData.getNumberDayOfaCycle());
         editor.putInt(TYPE_LANGUAGE_STRING, settingData.getTypeLaguage().getValue());
         editor.putBoolean(IS_USE_PASSWORD, settingData.isUsePassword());
+        editor.putString(PASS_WORD, settingData.getPwd());
         editor.commit();
     }
 
