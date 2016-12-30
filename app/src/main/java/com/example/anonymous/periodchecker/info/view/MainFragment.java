@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.anonymous.periodchecker.common.view.BaseFragment;
 import com.example.anonymous.periodchecker.R;
+import com.example.anonymous.periodchecker.common.view.BaseFragment;
 
 import java.util.Calendar;
 

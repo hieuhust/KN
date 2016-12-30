@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.anonymous.periodchecker">
+          package="com.example.anonymous.periodchecker">
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -9,22 +9,6 @@
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="reversePortrait">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="reversePortrait"
-            android:theme="@style/AppTheme" />
-
-        <activity
-            android:name=".info.view.MainInfoActivity"
-            android:screenOrientation="reversePortrait"
-            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,17 +17,27 @@
         </activity>
 
         <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="reversePortrait"/>
+
+        <activity
+            android:name=".info.view.MainInfoActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="reversePortrait"/>
+
+        <activity
             android:name=".InformationRegisterActivity"
-            android:screenOrientation="reversePortrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="reversePortrait"/>
         <activity
             android:name=".MenstrualInformationRegisterActivity"
-            android:screenOrientation="reversePortrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="reversePortrait"/>
         <activity
             android:name=".period.PeriodInfoActivity"
             android:label="@string/title_activity_period_info"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat"/>
     </application>
 
 </manifest>

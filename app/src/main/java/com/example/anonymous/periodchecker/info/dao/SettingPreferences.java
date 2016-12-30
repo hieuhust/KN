@@ -23,7 +23,6 @@ public class SettingPreferences {
     private final static String IS_USE_PASSWORD = "is_use_password";
 
     private final static String TYPE_LANGUAGE_STRING = "type_language";
-
     private final static String PASS_WORD = "password";
 
     private final static boolean IS_USE_PASSWORD_DEFAULT_VALUE = false;
@@ -60,7 +59,6 @@ public class SettingPreferences {
         settingData.setUsePassword(mSharedPreferences.getBoolean(IS_USE_PASSWORD, IS_USE_PASSWORD_DEFAULT_VALUE));
         settingData.setTypeLaguage(TYPE_LANGUAGE.convertIntToTypeLanguage(mSharedPreferences.getInt(TYPE_LANGUAGE_STRING, TYPE_LANGUAGE_DEFAULT_VALUE.getValue())));
         settingData.setPwd(mSharedPreferences.getString(PASS_WORD, ""));
-
         return settingData;
     }
 
@@ -75,3 +73,4 @@ public class SettingPreferences {
     }
 
 }
+

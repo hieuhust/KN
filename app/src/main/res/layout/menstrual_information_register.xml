@@ -66,6 +66,7 @@
         android:background="@drawable/edit_text_background">
 
         <EditText
+            android:id="@+id/menstrual_cycle_max"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -96,6 +97,7 @@
         android:background="@drawable/edit_text_background">
 
         <EditText
+            android:id="@+id/menstrual_cycle_min"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -126,6 +128,7 @@
         android:background="@drawable/edit_text_background">
 
         <EditText
+            android:id="@+id/period_length"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -232,6 +235,6 @@
             android:gravity="center"
             android:text="@string/next"
             android:textSize="@dimen/button_next_size"
-            android:textColor="@color/text_color"/>
+            android:textColor="@color/colorBlack"/>
     </LinearLayout>
 </RelativeLayout>

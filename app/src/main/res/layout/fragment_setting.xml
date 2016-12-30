@@ -12,7 +12,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/space_between_paragraph"
         android:layout_marginTop="10dp"
-        android:text="@string/setting" />
+        android:text="@string/setting"
+        android:id="@+id/tvSetting"/>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -78,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_between_paragraph"
-                android:text="@string/setting_upcase" />
+                android:text="@string/setting_upcase"
+                android:id="@+id/fragment_setting"/>
 
             <RelativeLayout
                 android:id="@+id/fragment_setting_rl"
@@ -90,7 +92,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pwd" />
+                    android:text="@string/pwd"
+                    android:id="@+id/tvPassWord"/>
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/fragment_setting_pwd_sw"
