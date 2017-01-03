@@ -2,6 +2,7 @@ package com.example.anonymous.periodchecker.info.model;
 
 import com.example.anonymous.periodchecker.common.model.DataModel;
 import com.example.anonymous.periodchecker.common.model.TYPE_LANGUAGE;
+import com.google.gson.annotations.SerializedName;
 
 import utils.Logger;
 
@@ -11,11 +12,18 @@ import utils.Logger;
 
 public class SettingData extends DataModel {
 
-    private int numberDayOfaCycle;
-    private int numverDayHanhKinh;
+    private int numberDayMaxCycle;
+
+    private int numberDayHanhKinh;
+
     private boolean isUsePassword;
+
+    private int numberDayMinCycle;
+
     private TYPE_LANGUAGE typeLaguage;
+
     private String pwd;
+
 
     public String getPwd() {
         return pwd;
@@ -26,13 +34,18 @@ public class SettingData extends DataModel {
         notifyAllObservers();
     }
 
-    public void setNumberDayOfaCycle(int numberDayOfaCycle) {
-        this.numberDayOfaCycle = numberDayOfaCycle;
+    public void setNumberDayMaxCycle(int numberDayMaxCycle) {
+        this.numberDayMaxCycle = numberDayMaxCycle;
         notifyAllObservers();
     }
 
-    public void setNumverDayHanhKinh(int numverDayHanhKinh) {
-        this.numverDayHanhKinh = numverDayHanhKinh;
+    public void setNumberDayHanhKinh(int numberDayHanhKinh) {
+        this.numberDayHanhKinh = numberDayHanhKinh;
+        notifyAllObservers();
+    }
+
+    public void setNumberDayMinCycle(int numberDayMinCycle) {
+        this.numberDayMinCycle = numberDayMinCycle;
         notifyAllObservers();
     }
 
@@ -46,12 +59,12 @@ public class SettingData extends DataModel {
         notifyAllObservers();
     }
 
-    public int getNumberDayOfaCycle() {
-        return numberDayOfaCycle;
+    public int getNumberDayMaxCycle() {
+        return numberDayMaxCycle;
     }
 
     public int getNumberDayHanhKinh() {
-        return numverDayHanhKinh;
+        return numberDayHanhKinh;
     }
 
     public boolean isUsePassword() {
@@ -62,8 +75,12 @@ public class SettingData extends DataModel {
         return typeLaguage;
     }
 
+    public int getNumberDayMinCycle() {
+        return numberDayMinCycle;
+    }
+
     @Override
     public void dump() {
-        Logger.i(TAG, "TypeLanguage = " + typeLaguage.name() + ", numberDayOfaCycle" + numberDayOfaCycle + ", numverDayHanhKinh" + numverDayHanhKinh + " ,isUsePassword" + isUsePassword);
+        Logger.i(TAG, "TypeLanguage = " + typeLaguage.name() + ", numberDayMaxCycle" + numberDayMaxCycle + ", numberDayHanhKinh" + numberDayHanhKinh + " ,getSettingDataFromPreference" + isUsePassword);
     }
 }

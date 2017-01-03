@@ -4,20 +4,24 @@ package com.example.anonymous.periodchecker;
  * Created by Annnn on 12/17/2016.
  */
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
+import android.os.Parcel;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-public class SplashScreen extends Activity {
+import com.example.anonymous.periodchecker.common.view.BaseActivity;
+import com.example.anonymous.periodchecker.info.model.SettingData;
+import com.example.anonymous.periodchecker.info.view.DialogOnClickListener;
+import com.example.anonymous.periodchecker.info.view.PasswordDialog;
+
+public class SplashScreen extends BaseActivity {
+
+    private SplashScreen mSplashScreen;
 
     private final int SPLASH_DISPLAY_LENGTH = 2000;
 
@@ -25,10 +29,12 @@ public class SplashScreen extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        mSplashScreen = this;
+
         if (Build.VERSION.SDK_INT < 16) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }else{
+        } else {
             View decorView = getWindow().getDecorView();
             int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(uiOptions);
@@ -49,10 +55,38 @@ public class SplashScreen extends Activity {
                 //turn off animation
                 productionName.clearAnimation();
                 appName.clearAnimation();
+                final SettingData settingData = getSettingDataFromPreference();
+                if (!settingData.isUsePassword()) {
+                    gotoMainActivity();
+                } else {
+                    // If use pwd then show dialog to user enter pwd
+                    PasswordDialog.showDialog(R.string.pwd_dialog_title, new DialogOnClickListener() {
+                        @Override
+                        public boolean doPositiveClick(String pwd) {
+                            if (settingData.getPwd().equals(pwd)) {
+                                gotoMainActivity();
+                                return true;
+                            }
+                            return false;
+                        }
 
-                Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
-                SplashScreen.this.startActivity(mainIntent);
-                SplashScreen.this.finish();
+                        @Override
+                        public void doNegativeClick() {
+
+                        }
+
+                        @Override
+                        public int describeContents() {
+                            return 0;
+                        }
+
+                        @Override
+                        public void writeToParcel(Parcel dest, int flags) {
+
+                        }
+                    }, mSplashScreen.getSupportFragmentManager());
+                }
+
             }
         }, SPLASH_DISPLAY_LENGTH);
     }

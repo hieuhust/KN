@@ -16,6 +16,8 @@ import com.example.anonymous.periodchecker.R;
 
 public abstract class BaseFragment extends Fragment {
 
+    public String TAG = this.getClass().getSimpleName();
+
     public abstract void initView(View view);
 
     public abstract void initData();

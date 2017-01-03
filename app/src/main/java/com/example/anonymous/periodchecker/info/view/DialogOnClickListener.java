@@ -7,7 +7,9 @@ import android.os.Parcelable;
  */
 
 public interface DialogOnClickListener extends Parcelable {
-    void doPositiveClick(String pwd);
+    boolean doPositiveClick(String pwd);
 
     void doNegativeClick();
+
 }
+

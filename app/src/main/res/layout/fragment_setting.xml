@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tvSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -31,23 +32,24 @@
                 android:layout_height="wrap_content"
                 android:text="@string/kinhnguyet_upcase" />
 
+            <!-- Max period-->
             <com.example.anonymous.periodchecker.customview.ItemNormal
-                android:id="@+id/fragment_setting_cycle_itemnormal"
+                android:id="@+id/fragment_setting_cycle_max"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/arrow_down_float"
                 custom:detail="20 days"
-                custom:mytitle="@string/period" />
+                custom:mytitle="@string/menstrual_cycle_max" />
 
             <NumberPicker
-                android:id="@+id/fragment_setting_cycle_np"
+                android:id="@+id/fragment_setting_cycle_max_np"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:visibility="gone"></NumberPicker>
 
             <TextView
-                android:id="@+id/fragment_setting_cycle_annotation_tv"
+                android:id="@+id/fragment_setting_cycle_max_annotation_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -55,7 +57,33 @@
                 android:text="@string/annotation_period_circle"
                 android:textSize="14sp"
                 android:visibility="gone" />
+            <!---->
 
+            <!-- Min period-->
+            <com.example.anonymous.periodchecker.customview.ItemNormal
+                android:id="@+id/fragment_setting_cycle_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/arrow_down_float"
+                custom:detail="20 days"
+                custom:mytitle="@string/menstrual_cycle_min" />
+
+            <NumberPicker
+                android:id="@+id/fragment_setting_cycle_min_np"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"></NumberPicker>
+
+            <TextView
+                android:id="@+id/fragment_setting_cycle_min_annotation_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="@string/annotation_period_circle"
+                android:textSize="14sp"
+                android:visibility="gone" />
             <!---->
 
             <com.example.anonymous.periodchecker.customview.ItemNormal
@@ -75,6 +103,7 @@
                 android:visibility="gone"></NumberPicker>
 
             <com.example.anonymous.periodchecker.customview.SettingHeader
+                android:id="@+id/fragment_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_between_paragraph"
@@ -88,6 +117,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/tvPassWord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pwd" />
@@ -114,8 +144,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/select_icon"
                 android:visibility="gone"
-                custom:iconsize="5dp"
                 custom:detail="@string/tieng_viet"
+                custom:iconsize="5dp"
                 custom:mytitle="" />
 
             <com.example.anonymous.periodchecker.customview.ItemNormal
@@ -124,8 +154,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/select_icon"
                 android:visibility="gone"
-                custom:iconsize="5dp"
                 custom:detail="@string/english"
+                custom:iconsize="5dp"
                 custom:mytitle="" />
 
             <com.example.anonymous.periodchecker.customview.ItemNormal

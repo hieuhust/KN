@@ -7,7 +7,7 @@
         android:id="@+id/layout_setting_header_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorMoreGray"
+        android:textColor="@color/lightGray"
         android:text="@string/kinhnguyet_upcase" />
     <View style="@style/Divider"
         android:layout_marginTop="10dp"

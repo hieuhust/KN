@@ -64,7 +64,8 @@ public class PasswordDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.layout_fragment_dialog, container, false);
+        getDialog().setCanceledOnTouchOutside(false);
+        View v =  inflater.inflate(R.layout.layout_fragment_dialog, container, false);
         final EditText edtPwd = (EditText) v.findViewById(R.id.layout_fragment_dialog_pwd_edt);
         final TextView tvError = (TextView) v.findViewById(R.id.layout_fragment_dialog_error_tv);
         final CheckBox ckbShowPwd = (CheckBox) v.findViewById(R.id.layout_fragment_dialog_show_pwd_ckb);
@@ -89,8 +90,13 @@ public class PasswordDialog extends DialogFragment {
             public void onClick(View v) {
                 String content = edtPwd.getText().toString();
                 if (content != null && !"".equals(content)) {
-                    dialogOnClickListener.doPositiveClick(edtPwd.getText().toString());
-                    dismiss();
+                    if (dialogOnClickListener.doPositiveClick(edtPwd.getText().toString())) {
+                        dismiss();
+                    } else {
+                        tvError.setText(R.string.pwd_dialog_error_login);
+                        tvError.setVisibility(View.VISIBLE);
+                    }
+
                 } else {
                     tvError.setText(R.string.pwd_info_enter);
                     tvError.setVisibility(View.VISIBLE);
@@ -108,4 +114,3 @@ public class PasswordDialog extends DialogFragment {
         return v;
     }
 }
-

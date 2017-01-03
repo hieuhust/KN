@@ -3,7 +3,8 @@ package com.example.anonymous.periodchecker.info.present;
 import android.content.Context;
 
 import com.example.anonymous.periodchecker.common.model.BasePresent;
-import com.example.anonymous.periodchecker.info.dao.SettingPreferences;
+import com.example.anonymous.periodchecker.common.model.TYPE_DATA;
+import com.example.anonymous.periodchecker.info.dao.PreferencesUtil;
 import com.example.anonymous.periodchecker.info.model.SettingData;
 
 /**
@@ -16,11 +17,11 @@ public class SettingPresent extends BasePresent<SettingData> {
 
     private Context mContext;
 
-    private SettingPreferences mSettingPreferences;
+    private PreferencesUtil mPreferencesUtil;
 
     protected SettingPresent(Context context) {
         this.mContext = context;
-        mSettingPreferences = SettingPreferences.newInstance(mContext);
+        mPreferencesUtil = PreferencesUtil.newInstance(mContext);
     }
 
     public static SettingPresent newInstance(Context context) {
@@ -31,12 +32,12 @@ public class SettingPresent extends BasePresent<SettingData> {
 
     @Override
     protected SettingData fetchDataModel() {
-        return mSettingPreferences.getSettingData();
+        return (SettingData) mPreferencesUtil.getDataModel(TYPE_DATA.SETTING);
     }
 
     @Override
     public void signalNotifyDataChange(SettingData dataModel) {
-        mSettingPreferences.setSettingData(dataModel);
+        mPreferencesUtil.setDataModel(TYPE_DATA.SETTING, dataModel);
     }
 
 

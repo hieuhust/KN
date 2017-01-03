@@ -47,7 +47,6 @@
     <string name="pwd_show">Show password</string>
     <string name="pwd_info_enter">Password is empty! Plz enter password</string>
     <string name="pwd_dialog_title">Enter password</string>
-    <string name="pwd_dialog_error_login">Password is wrong! Plz enter again</string>
 
     <string name="please_fill_your_full_name">please fill your full name correctly</string>
     <string name="please_fill_your_weight">please fill your weight correctly</string>

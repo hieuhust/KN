@@ -9,9 +9,9 @@ import java.util.List;
 
 public abstract class DataModel {
 
-    public String TAG = this.getClass().getSimpleName();
+    public transient String TAG = this.getClass().getSimpleName();
 
-    private List<BasePresent> observers = new ArrayList<BasePresent>();
+    private transient List<BasePresent> observers = new ArrayList<BasePresent>();
 
     public void attach(BasePresent observer) {
         observers.add(observer);

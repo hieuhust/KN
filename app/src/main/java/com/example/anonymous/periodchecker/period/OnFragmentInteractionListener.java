@@ -2,6 +2,8 @@ package com.example.anonymous.periodchecker.period;
 
 import android.net.Uri;
 
+import com.example.anonymous.periodchecker.common.model.TYPE_LANGUAGE;
+
 /**
  * Created by Huy Hieu on 12/19/2016.
  */

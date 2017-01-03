@@ -1,5 +1,6 @@
 package com.example.anonymous.periodchecker.info.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.support.v7.widget.SwitchCompat;
@@ -17,6 +18,7 @@ import com.example.anonymous.periodchecker.common.view.BaseFragment;
 import com.example.anonymous.periodchecker.customview.ItemNormal;
 import com.example.anonymous.periodchecker.info.model.SettingData;
 import com.example.anonymous.periodchecker.info.present.SettingPresent;
+import com.example.anonymous.periodchecker.period.OnFragmentInteractionListener;
 
 /**
  * Created by Huy Hieu on 12/21/2016.
@@ -24,15 +26,17 @@ import com.example.anonymous.periodchecker.info.present.SettingPresent;
 
 public class SettingFragment extends BaseFragment {
 
-    private ItemNormal itemNormalCycle, itemNormalHanhKinh, itemNormalLang, itemNormalMail;
+    private OnSettingFragmentInteractionListener mListener;
 
-    private NumberPicker npCycle, npHanhKinh;
+    private ItemNormal itemNormalCycleMax, itemNormalCycleMin, itemNormalHanhKinh, itemNormalLang, itemNormalMail;
+
+    private NumberPicker npCycleMax, npCycleMin, npHanhKinh;
 
     private ItemNormal itemNormalVn, itemNormalEng;
 
     private SwitchCompat swPwd;
 
-    private TextView tvCycleAnnotation;
+    private TextView tvCycleAnnotationMax, tvCycleAnnotationMin;
 
     private SettingData mSettingData;
 
@@ -68,19 +72,26 @@ public class SettingFragment extends BaseFragment {
         initView(view);
         initData();
         // Inject data to number pickers
-        NumberPicker[] numberPickers = {npCycle, npHanhKinh};
+        NumberPicker[] numberPickers = {npCycleMax, npCycleMin, npHanhKinh};
         initDataForNumberPicker(1, 50, numberPickers);
         return view;
     }
 
     @Override
     public void initView(View view) {
-        // for cycle
-        itemNormalCycle = (ItemNormal) view.findViewById(R.id.fragment_setting_cycle_itemnormal);
-        npCycle = (NumberPicker) view.findViewById(R.id.fragment_setting_cycle_np);
-        tvCycleAnnotation = (TextView) view.findViewById(R.id.fragment_setting_cycle_annotation_tv);
-        View[] itemNormalCycleHides = {npCycle, tvCycleAnnotation};
-        presentWhenClick(itemNormalCycle, itemNormalCycleHides);
+        // for max cycle
+        itemNormalCycleMax = (ItemNormal) view.findViewById(R.id.fragment_setting_cycle_max);
+        npCycleMax = (NumberPicker) view.findViewById(R.id.fragment_setting_cycle_max_np);
+        tvCycleAnnotationMax = (TextView) view.findViewById(R.id.fragment_setting_cycle_max_annotation_tv);
+        View[] itemNormalMaxCycleHides = {npCycleMax, tvCycleAnnotationMax};
+        presentWhenClick(itemNormalCycleMax, itemNormalMaxCycleHides);
+
+        // for max cycle
+        itemNormalCycleMin = (ItemNormal) view.findViewById(R.id.fragment_setting_cycle_min);
+        npCycleMin = (NumberPicker) view.findViewById(R.id.fragment_setting_cycle_min_np);
+        tvCycleAnnotationMin = (TextView) view.findViewById(R.id.fragment_setting_cycle_min_annotation_tv);
+        View[] itemNormalMinCycleHides = {npCycleMin, tvCycleAnnotationMin};
+        presentWhenClick(itemNormalCycleMin, itemNormalMinCycleHides);
 
         // for hanh kinh
         itemNormalHanhKinh = (ItemNormal) view.findViewById(R.id.fragment_setting_hanh_kinh_itemnormal);
@@ -95,7 +106,7 @@ public class SettingFragment extends BaseFragment {
         presentWhenClick(itemNormalLang, new AfterOnClickListener() {
             @Override
             public void handle() {
-                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, mSettingData.getTypeLaguage().getValue());
+                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, mSettingData.getTypeLaguage());
             }
         }, itemNormalHides);
 
@@ -109,34 +120,43 @@ public class SettingFragment extends BaseFragment {
         itemNormalVn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int language = TYPE_LANGUAGE.VIET_NAM.getValue();
-                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, language);
+                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, TYPE_LANGUAGE.VIET_NAM);
                 mSettingData.setTypeLaguage(TYPE_LANGUAGE.VIET_NAM);
+                mListener.onChangeLanguage(TYPE_LANGUAGE.VIET_NAM);
             }
         });
 
         itemNormalEng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int language = TYPE_LANGUAGE.ENGLAND.getValue();
-                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, language);
+                handleSelectLangague(itemNormalEng, itemNormalVn, itemNormalLang, TYPE_LANGUAGE.ENGLAND);
                 mSettingData.setTypeLaguage(TYPE_LANGUAGE.ENGLAND);
+                mListener.onChangeLanguage(TYPE_LANGUAGE.ENGLAND);
             }
         });
         npHanhKinh.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                mSettingData.setNumverDayHanhKinh(newVal);
+                mSettingData.setNumberDayHanhKinh(newVal);
                 itemNormalHanhKinh.setContentText(newVal + " days");
             }
         });
-        npCycle.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        npCycleMax.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                mSettingData.setNumberDayOfaCycle(newVal);
-                itemNormalCycle.setContentText(newVal + " days");
+                mSettingData.setNumberDayMaxCycle(newVal);
+                itemNormalCycleMax.setContentText(newVal + " days");
             }
         });
+        npCycleMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                mSettingData.setNumberDayMinCycle(newVal);
+                itemNormalCycleMin.setContentText(newVal + " days");
+            }
+        });
+
+
         swPwd.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -152,9 +172,10 @@ public class SettingFragment extends BaseFragment {
                         if ("".equals(mSettingData.getPwd())) {
                             PasswordDialog.showDialog(R.string.pwd_dialog_title, new DialogOnClickListener() {
                                 @Override
-                                public void doPositiveClick(String pwd) {
+                                public boolean doPositiveClick(String pwd) {
                                     mSettingData.setPwd(pwd);
                                     mSettingData.setUsePassword(isChecked);
+                                    return true;
                                 }
 
                                 @Override
@@ -188,15 +209,37 @@ public class SettingFragment extends BaseFragment {
         isTouchToSwitch = false;
         mSettingPresent = SettingPresent.newInstance(getContext().getApplicationContext());
         mSettingData = mSettingPresent.getData();
-        itemNormalCycle.setContentText(mSettingData.getNumberDayOfaCycle() + " days");
+        itemNormalCycleMax.setContentText(mSettingData.getNumberDayMaxCycle() + " days");
+        itemNormalCycleMin.setContentText(mSettingData.getNumberDayMinCycle() + " days");
         itemNormalHanhKinh.setContentText(mSettingData.getNumberDayHanhKinh() + " days");
-        itemNormalLang.setContentText(mSettingData.getTypeLaguage().name());
+        if (mSettingData.getTypeLaguage().equals(TYPE_LANGUAGE.VIET_NAM)) {
+            itemNormalLang.setContentText(getContext().getString(R.string.tieng_viet));
+        } else {
+            itemNormalLang.setContentText(getContext().getString(R.string.english));
+        }
         swPwd.setChecked(mSettingData.isUsePassword());
 
     }
 
-    private void handleSelectLangague(ItemNormal itemNormalEng, ItemNormal itemNormalVn, ItemNormal parent, int language) {
-        if (language == TYPE_LANGUAGE.VIET_NAM.getValue()) {
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnSettingFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnSettingFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    private void handleSelectLangague(ItemNormal itemNormalEng, ItemNormal itemNormalVn, ItemNormal parent, TYPE_LANGUAGE language) {
+        if (language.equals(TYPE_LANGUAGE.VIET_NAM)) {
             itemNormalVn.presentIcon(View.VISIBLE);
             itemNormalEng.presentIcon(View.GONE);
             parent.setContentText(getContext().getString(R.string.tieng_viet));

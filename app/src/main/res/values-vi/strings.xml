@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Kiểm tra kỳ kinh</string>
+    <string name="production_name">BK Production!</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="choose_language">Chọn ngôn ngữ</string>
+    <string name="english">English</string>
+    <string name="tieng_viet">Tiếng Việt</string>
+    <string name="create_new_user">Đăng ký</string>
+    <string name="full_name">Tên đầy đủ</string>
+    <string name="height">Chiều cao (cm)</string>
+    <string name="weight">Cân nặng (kg)</string>
+    <string name="date_of_birth">Ngày sinh</string>
+    <string name="next">Tiếp</string>
+    <string name="back">Quay lại</string>
+    <string name="menstrual_info">Thông tin kinh nguyệt</string>
+    <string name="periodic_cycle">chu kỳ định kì</string>
+    <string name="menstrual_cycle">Chu kỳ kinh nguyệt</string>
+    <string name="period_length">Số ngày hành kinh</string>
+    <string name="first_period_day">Ngày đầu chu kỳ</string>
+    <string name="menstrual_cycle_max">Chu kì dài nhất (ngày)</string>
+    <string name="menstrual_cycle_min">Chu kì ngắn nhất (ngày)</string>
+
+    <!-- period_info-->
+    <string name="title_activity_period_info">Thông tin chu kì</string>
+    <string name="back_title">Quay lại</string>
+    <string name="period_type_circle">Chu kỳ đều</string>
+    <string name="period">Chu kỳ</string>
+    <string name="annotation_period_circle">Khoảng thời gian giữa ngày đầu hành kinh chu kỳ này và chu kỳ trước</string>
+    <string name="day_number_hanh_kinh">Số ngày hành kinh</string>
+    <string name="first_day_of_period">Ngày đầu chu kỳ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main_info">MainInfoActivity</string>
+    <string name="setting">Cài đặt</string>
+    <string name="setting_upcase">CÀI ĐẶT</string>
+    <string name="kinhnguyet_upcase">KINH NGUYỆT</string>
+    <string name="pwd">Mật khẩu</string>
+    <string name="lang">Ngôn ngữ</string>
+    <string name="type_lang">Tiếng Anh</string>
+    <string name="support">Trợ giúp</string>
+    <string name="Email">bkteamsupport@gmail.com</string>
+    <string name="trigger_co_kinh">Bắt đầu có kinh ngày hôm nay</string>
+
+    <string name="pwd_dialog_ok">Đồng ý</string>
+    <string name="pwd_dialog_cancel">Hủy bỏ</string>
+    <string name="pwd_show">Hiển thị mật khẩu</string>
+    <string name="pwd_info_enter">Mật khẩu đang trống, xin hãy điền mật khẩu vào!</string>
+    <string name="pwd_dialog_title">Nhập mật khẩu</string>
+
+    <string name="please_fill_your_full_name">vui lòng điền chính xác tên của bạn</string>
+    <string name="please_fill_your_weight">vui lòng điền chính xác cân nặng của bạn</string>
+    <string name="please_fill_your_height">vui lòng điền chính xác chiều cao của bạn</string>
+    <string name="please_fill_your_menstrual_cycle_max">vui lòng điền chính xác chu kỳ dài nhất của bạn</string>
+    <string name="please_fill_your_menstrual_cycle_min">vui lòng điền chính xác chu kỳ ngắn nhất của bạn</string>
+    <string name="please_fill_your_period_length">Hãy điền chính xác độ dàichu kỳ của bạn</string>
+    <string name="please_fill_your_birthday">vui lòng chọn ngày sinh</string>
+    <string name="please_fill_your_first_period_day">vui lòng chọn ngày đầu chu kỳ</string>
+    <string name="please_click_back_again_to_exit">vui lòng bấm nút quay lại thêm lần nữa để thoát khỏi ứng dụng</string>
+    <string name="double_press_back">vui lòng bấm nút back thêm lần nữa nếu muốn thoát</string>
+
+    <string name="add_note">Thêm ghi chú</string>
+    <string name="no_note">Không có ghi chú nào</string>
+</resources>

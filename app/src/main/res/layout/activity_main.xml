@@ -17,6 +17,7 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -36,6 +37,7 @@
         android:layout_below="@+id/text_language">
 
         <TextView
+            android:id="@+id/choose_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -52,6 +54,7 @@
             android:layout_alignParentEnd="true">
 
             <TextView
+                android:id="@+id/language_text_showed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -149,6 +152,6 @@
             android:gravity="center"
             android:text="@string/next"
             android:textSize="@dimen/button_next_size"
-            android:textColor="@color/text_color"/>
+            android:textColor="@color/colorBlack"/>
     </LinearLayout>
 </RelativeLayout>

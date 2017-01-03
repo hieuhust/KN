@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.anonymous.periodchecker.common.view.BaseFragment;
 import com.example.anonymous.periodchecker.R;
+import com.example.anonymous.periodchecker.common.view.BaseFragment;
 
 import java.util.Calendar;
 
@@ -19,7 +19,7 @@ import java.util.Calendar;
 
 public class MainFragment extends BaseFragment {
 
-    private TextView tvDayth,tvNumberDayRemain,tvDate;
+    private TextView tvDayth, tvNumberDayRemain, tvDate;
 
     private Button btnTriggerCoKinh;
 
@@ -50,10 +50,10 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        tvDayth = (TextView)view.findViewById(R.id.fragment_main_day_th_tv);
-        tvNumberDayRemain = (TextView)view.findViewById(R.id.fragment_main_number_day_remain_tv);
-        tvDate = (TextView)view.findViewById(R.id.fragment_main_date_tv);
-        btnTriggerCoKinh =(Button)view.findViewById(R.id.fragment_main_trigger_co_kinh_btn);
+        tvDayth = (TextView) view.findViewById(R.id.fragment_main_day_th_tv);
+        tvNumberDayRemain = (TextView) view.findViewById(R.id.fragment_main_number_day_remain_tv);
+        tvDate = (TextView) view.findViewById(R.id.fragment_main_date_tv);
+        btnTriggerCoKinh = (Button) view.findViewById(R.id.fragment_main_trigger_co_kinh_btn);
         btnTriggerCoKinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,11 +67,11 @@ public class MainFragment extends BaseFragment {
 
     }
 
-    private void setDateForTextViewDate(){
+    private void setDateForTextViewDate() {
         Calendar c = Calendar.getInstance();
         String date = Integer.toString(c.get(Calendar.DATE));
-        String month = Integer.toString(c.get(Calendar.MONTH));
-        String dateOFMonth = String.format("%s/%s",date,month);
+        String month = Integer.toString(c.get(Calendar.MONTH) + 1);
+        String dateOFMonth = String.format("%s/%s", date, month);
         tvDate.setText(dateOFMonth);
     }
 }
