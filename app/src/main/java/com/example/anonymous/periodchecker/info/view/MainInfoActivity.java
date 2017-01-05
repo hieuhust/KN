@@ -31,6 +31,10 @@ public class MainInfoActivity extends BaseActivity implements OnFragmentInteract
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_info);
 
+        //user registered their infos
+
+        AppUtility.putSharedPrefBooleanValue(getApplicationContext(), "UserInfos", "isUserInfoRegistered", true);
+
         mViewPager = (ViewPager) findViewById(R.id.activity_main_info_viewpager);
         if (mViewPager != null) {
             setupViewPager(mViewPager);

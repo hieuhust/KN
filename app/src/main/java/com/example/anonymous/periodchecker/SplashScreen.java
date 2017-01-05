@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.example.anonymous.periodchecker.common.AppUtility;
 import com.example.anonymous.periodchecker.common.view.BaseActivity;
 import com.example.anonymous.periodchecker.info.model.SettingData;
 import com.example.anonymous.periodchecker.info.view.DialogOnClickListener;
@@ -64,7 +65,11 @@ public class SplashScreen extends BaseActivity {
                         @Override
                         public boolean doPositiveClick(String pwd) {
                             if (settingData.getPwd().equals(pwd)) {
-                                gotoMainActivity();
+                                if (AppUtility.getSharedPrefBooleanValue(getApplicationContext(), "UserInfos", "isUserInfoRegistered")){
+                                    gotoMainInfoActivity();
+                                } else {
+                                    gotoMainActivity();
+                                }
                                 return true;
                             }
                             return false;
